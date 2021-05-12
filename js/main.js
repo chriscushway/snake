@@ -7,7 +7,7 @@ const ctx = canvas.getContext('2d');
 const grid = new Grid(canvas, ctx, gridWidth, gridHeight);
 
 function init() {
-
+    
 }
 
 
