@@ -1,0 +1,12 @@
+body {
+    margin: 0;
+    background-color: hsl(0, 0%, 13%);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#gameContainer {
+    border: 1px solid white
+}
