@@ -3,10 +3,11 @@ let gridHeight = 400;
 
 const canvas = document.getElementById('gameContainer');
 const ctx = canvas.getContext('2d');
-
-const grid = new Grid(canvas, ctx, gridWidth, gridHeight, 10);
+const foodColour = '#10e709';
+const grid = new Grid(canvas, ctx, gridWidth, gridHeight, 40);
 const head = new Head(200, 200, grid);
 const snake = [head];
+let noFood = true;
 
 function init() {
     grid.paintSnake(snake);
@@ -69,11 +70,20 @@ function logicLoop(func) {
 function renderLoop() {
     grid.clearGrid();
     grid.paintSnake(snake);
+    grid.paintBlock(grid.foodX, grid.foodY, foodColour);
 }
 
 function loop() {
     logicLoop(func);
+    if (noFood) {
+        makeFood();
+    }
     renderLoop();
+}
+
+function makeFood() {
+    grid.generateFoodPos(snake);
+    noFood = false;
 }
 
 init();
