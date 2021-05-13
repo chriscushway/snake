@@ -25,9 +25,9 @@ class Grid{
     }
 
     paintSnake(bodyParts, colour = "#FF0000") {
-        this.ctx.fillstyle = colour;
+        this.ctx.fillStyle = colour;
         for(let i = 0; i < bodyParts.length; i++) {
-            ctx.fillRect(x, y, this.cellSize, this.cellSize);
+            ctx.fillRect(bodyParts[i].x, bodyParts[i].y, this.cellSize, this.cellSize);
         }
     }
 
@@ -35,6 +35,9 @@ class Grid{
         ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
     }
 
-
+    paintBlock(x, y, colour = "#FFFFFF") {
+        this.ctx.fillStyle = colour;
+        this.ctx.fillRect(x, y, this.cellSize, this.cellSize);
+    }
 
 }
