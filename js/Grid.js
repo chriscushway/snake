@@ -28,10 +28,11 @@ class Grid{
         this.cellSize = cellSize;
     }
 
-    paintSnake(bodyParts, colour = "#FF0000") {
+    paintSnake(snake, colour = "#FF0000") {
         this.ctx.fillStyle = colour;
-        for(let i = 0; i < bodyParts.length; i++) {
-            this.ctx.fillRect(bodyParts[i].x, bodyParts[i].y, this.cellSize, this.cellSize);
+        this.paintBlock(snake.head.x, snake.head.y);
+        for(let i = 0; i < snake.body.length; i++) {
+            this.ctx.fillRect(snake.body[i].x, snake.body[i].y, this.cellSize, this.cellSize);
         }
     }
 
@@ -39,7 +40,7 @@ class Grid{
         this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
     }
 
-    paintBlock(x, y, colour = "#FFFFFF") {
+    paintBlock(x, y, colour = "#FF0000") {
         console.log(`painting food at ${x}, ${y}`);
         this.ctx.fillStyle = colour;
         this.ctx.fillRect(x, y, this.cellSize, this.cellSize);

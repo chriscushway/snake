@@ -6,7 +6,7 @@ const ctx = canvas.getContext('2d');
 const foodColour = '#10e709';
 const grid = new Grid(canvas, ctx, gridWidth, gridHeight, 40);
 const head = new Head(200, 200, grid);
-const snake = [head];
+const snake = new Snake(head, grid);
 let noFood = true;
 
 function init() {
@@ -14,27 +14,19 @@ function init() {
 }
 
 function moveUp() {
-    for(let i = 0; i < snake.length; i++) {
-        snake[i].moveUp();
-    }
+    snake.moveUp();
 }
 
 function moveDown() {
-    for(let i = 0; i < snake.length; i++) {
-        snake[i].moveDown();
-    }
+    snake.moveDown();
 }
 
 function moveLeft() {
-    for(let i = 0; i < snake.length; i++) {
-        snake[i].moveLeft();
-    }
+    snake.moveLeft();
 }
 
 function moveRight() {
-    for(let i = 0; i < snake.length; i++) {
-        snake[i].moveRight();
-    }
+    snake.moveRight();
 }
 
 let func = moveUp;
