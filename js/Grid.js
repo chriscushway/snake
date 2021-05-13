@@ -45,22 +45,9 @@ class Grid{
         this.ctx.fillRect(x, y, this.cellSize, this.cellSize);
     }
 
-    generateFoodPos(snake) {
-        let generated = false;
-        let x = 0;
-        let y = 0;
-        console.log('about to loop');
-        while(!generated) {
-            console.log('looping');
-            x = this.generateFoodX();
-            y = this.generateFoodY();
-            console.log(`(${x}, ${y})`);
-            generated = !this.isPartOfSnake(snake, x, y);
-           
-        }
-        console.log('exiting loop');
-        this.foodX = x;
-        this.foodY = y;
+    generateFoodPos() {
+        this.foodX = this.generateFoodX();
+        this.foodY = this.generateFoodY();
     }
 
     isPartOfSnake(snake, x, y) {
@@ -73,8 +60,6 @@ class Grid{
     }
 
     generateFoodX() {
-        console.log(`cellAmt: ${this.cellAmt}, cellSize: ${this.cellSize} gridwidth ${this.gridWidth}`);
-        console.log(Math.floor(Math.random() * this.gridWidth));
         return Math.floor(Math.random() * this.cellAmt) * this.cellSize;
     }
 

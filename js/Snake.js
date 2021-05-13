@@ -49,7 +49,6 @@ class Snake {
 
      moveSnakeLeft() {
         for(let i = this.body.length - 1; i > 0; i--) {
-            console.log(`i is ${i}`);
             this.body[i].x = this.body[i - 1].x;
             this.body[i].y = this.body[i - 1].y;
         }
@@ -58,10 +57,17 @@ class Snake {
 
      moveSnakeRight() {
         for(let i = this.body.length - 1; i > 0; i--) {
-            console.log(`i is ${i}`);
             this.body[i].x = this.body[i - 1].x;
             this.body[i].y = this.body[i - 1].y;
         }
         this.moveRight();
+     }
+
+     hasEatenFood(x, y) {
+        return this.head.x === x && this.head.y === y;
+     }
+
+     addBodyPart() {
+         this.body = [...this.body, new BodyPart(this.head.x, this.head.y)];
      }
 }

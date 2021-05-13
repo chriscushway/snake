@@ -58,6 +58,13 @@ function handleKeyPress(e) {
 
 function logicLoop(func) {
     func();
+    if(noFood) {
+        makeFood();
+    }
+    if(snake.hasEatenFood(grid.foodX, grid.foodY)) {
+        noFood = true;
+        snake.addBodyPart();
+    }
 }
 
 function renderLoop() {
@@ -68,14 +75,11 @@ function renderLoop() {
 
 function loop() {
     logicLoop(func);
-    if (noFood) {
-        makeFood();
-    }
     renderLoop();
 }
 
 function makeFood() {
-    grid.generateFoodPos(snake);
+    grid.generateFoodPos();
     noFood = false;
 }
 
