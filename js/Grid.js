@@ -30,7 +30,6 @@ class Grid{
 
     paintSnake(snake, colour = "#FF0000") {
         this.ctx.fillStyle = colour;
-        this.paintBlock(snake.head.x, snake.head.y);
         for(let i = 0; i < snake.body.length; i++) {
             this.ctx.fillRect(snake.body[i].x, snake.body[i].y, this.cellSize, this.cellSize);
         }

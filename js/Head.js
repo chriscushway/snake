@@ -1,5 +1,5 @@
 class Head extends BodyPart {
-    constructor(x, y, grid) {
-        super(x, y, grid);
+    constructor(x, y) {
+        super(x, y);
     }
 }
