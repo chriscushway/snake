@@ -1,6 +1,10 @@
 body {
     margin: 0;
     background-color: hsl(0, 0%, 13%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 * {
@@ -9,4 +13,11 @@ body {
 
 #gameContainer {
     border: 1px solid #10e709
+}
+
+h1 {
+    color: #10e709;
+    font-weight: bold;
+    font-family: sans-serif;
+    letter-spacing: 1rem;
 }
