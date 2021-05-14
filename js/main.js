@@ -61,6 +61,10 @@ function logicLoop(func) {
     if(noFood) {
         makeFood();
     }
+    if (snake.hasCrashed()) {
+        alert('crash');
+    }
+
     if(snake.hasEatenFood(grid.foodX, grid.foodY)) {
         noFood = true;
         snake.addBodyPart();

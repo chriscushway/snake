@@ -10,6 +10,8 @@ class Grid{
         this.cellSize = gridWidth / cellAmt;
         this.foodX = null;
         this.foodY = null;
+        this.grid = this.createGrid();
+        console.log(this.grid);
     }
 
     setGridHeight(gridHeight) {
@@ -35,6 +37,17 @@ class Grid{
         }
     }
 
+    createGrid() {
+        let grid = [];
+        for(let i = 0; i < this.cellAmt; i++) {
+            grid[i] = [];
+            for(let j = 0; j < this.cellAmt; j++) {
+                grid[i][j] = [i*this.cellSize, j*this.cellSize];
+            }
+        }
+        return grid;
+    }
+
     clearGrid() {
         this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
     }
@@ -46,25 +59,22 @@ class Grid{
     }
 
     generateFoodPos() {
-        this.foodX = this.generateFoodX();
-        this.foodY = this.generateFoodY();
+        this.foodX = this.grid[this.generateFoodX()][this.generateFoodY()][0];
+        this.foodY = this.grid[this.generateFoodX()][this.generateFoodY()][1];
     }
 
-    isPartOfSnake(snake, x, y) {
+    subtractSnakeFromGrid(snake) {
         for(let i = 0; i < snake.length; i++) {
-            if (snake[i].x === x && snake[i].y === y) {
-                return true;
-            }
+
         }
-        return false;
     }
 
     generateFoodX() {
-        return Math.floor(Math.random() * this.cellAmt) * this.cellSize;
+        return Math.floor(Math.random() * this.cellAmt);
     }
 
     generateFoodY() {
-        return Math.floor(Math.random() * this.cellAmt) * this.cellSize;
+        return Math.floor(Math.random() * this.cellAmt);
     }
 
 }
