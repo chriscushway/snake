@@ -1,5 +1,6 @@
 let gridWidth = 400;
 let gridHeight = 400;
+var game;
 
 const canvas = document.getElementById('gameContainer');
 const ctx = canvas.getContext('2d');
@@ -62,7 +63,7 @@ function logicLoop(func) {
         makeFood();
     }
     if (snake.hasCrashed()) {
-        alert('crash');
+        stop();
     }
 
     if(snake.hasEatenFood(grid.foodX, grid.foodY)) {
@@ -88,5 +89,12 @@ function makeFood() {
 }
 
 init();
-setInterval(function(){loop()}, 100);
+
+function start() {
+    game = setInterval(function(){loop()}, 100);
+}
+
+function stop() {
+    clearInterval(game);
+}
 
