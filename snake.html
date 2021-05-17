@@ -7,11 +7,45 @@
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-    <h1>SNAKE</h1>
+    <div id="game">
+
+    </div>
+    <div id="top-row">
+        <button id="settings-btn" class="btn">Settings</button>
+        <div id="settings-menu">
+            <div id="settings-grid">
+                <div id="gridHeight">
+                    <label for="">Grid height</label>
+                    <input type="text">
+                </div>
+                <div id="gridWidth">
+                    <label for="">Grid width</label>
+                    <input type="text">
+                </div>
+                <div id="cellAmountX">
+                    <label for="">Cell amount X</label>
+                    <input type="text">
+                </div>
+                <div id="cellAmountY">
+                    <label for="">Cell amount X</label>
+                    <input type="text">
+                </div>
+                <div id="difficulty">
+                    <label for=""></label>
+                    <input type="radio" name="" id="">
+                    <input type="radio" name="" id="">
+                    <input type="radio" name="" id="">
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <canvas id="gameContainer"></canvas>
     <div id="button-panel">
-        <button id="start">Play</button>
+        <button id="start" class="btn">Play</button>
     </div>
+    
+    
     <script src="js/BodyPart.js"></script>
     <script src="js/Head.js"></script>
     <script src="js/Snake.js"></script>

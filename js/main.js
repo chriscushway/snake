@@ -5,10 +5,10 @@ var game;
 const canvas = document.getElementById('gameContainer');
 const ctx = canvas.getContext('2d');
 const foodColour = '#10e709';
-const grid = new Grid(canvas, ctx, gridWidth, gridHeight, 40);
-const head = new Head(200, 200);
-const bodyParts = [new BodyPart(200,210), new BodyPart(200,220)];
-const snake = new Snake(head, grid, bodyParts);
+let grid = new Grid(canvas, ctx, gridWidth, gridHeight, 40);
+let head = new Head(200, 200);
+let bodyParts = [new BodyPart(200,210), new BodyPart(200,220)];
+let snake = new Snake(head, grid, bodyParts);
 let noFood = true;
 
 function init() {
@@ -96,5 +96,12 @@ function start() {
 
 function stop() {
     clearInterval(game);
+}
+
+function restart() {
+    grid = new Grid(canvas, ctx, gridWidth, gridHeight, 40);
+    head = new Head(200, 200);
+    bodyParts = [new BodyPart(200,210), new BodyPart(200,220)];
+    snake = new Snake(head, grid, bodyParts);
 }
 
